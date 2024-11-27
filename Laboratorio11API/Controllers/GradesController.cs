@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Laboratorio11API.Models;
+using Laboratorio11API.Request;
 
 namespace Laboratorio11API.Controllers
 {
@@ -30,9 +31,14 @@ namespace Laboratorio11API.Controllers
         }
 
         [HttpPost]
-        public void Save(Grade grade)
+        public void Save(GradeRequestV1 grade)
         {
-            _context.Grades.Add(grade);
+            Grade gradeSave = new Grade
+            {
+                Description = grade.Description,
+                Name = grade.Name
+            };
+            _context.Grades.Add(gradeSave);
             _context.SaveChanges();
         }
 
@@ -48,10 +54,10 @@ namespace Laboratorio11API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        public void Delete(GradeRequestV2 request)
         {
-            var grade = _context.Grades.Find(id);
+            var grade = _context.Grades.Find(request.Id);
             if (grade != null)
             {
                 _context.Grades.Remove(grade);

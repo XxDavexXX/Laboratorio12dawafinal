@@ -1,0 +1,7 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/Laboratorio11API/bin/Debug/net8.0/Laboratorio11API.dll
+/Laboratorio11API/bin/Debug/net8.0/Laboratorio11API.exe
+/Laboratorio11API/bin/Debug/net8.0/Laboratorio11API.pdb
